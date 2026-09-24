@@ -2,7 +2,6 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.5;
   color: #212529;
-  background-color: #f8f9fa;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,10 +15,5 @@
 body {
   margin: 0;
   min-width: 320px;
-}
-
-.welcome {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+  background-color: #f8f9fa;
 }
