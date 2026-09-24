@@ -1,6 +1,5 @@
-﻿import { Button, Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { formatPrice } from '../../utils/formatPrice.js'
 
 function Item({ product }) {
   return (
@@ -15,7 +14,7 @@ function Item({ product }) {
       <Card.Body className="d-flex flex-column">
         <Card.Title as="h2" className="h5">{product.title}</Card.Title>
         <Card.Text className="fs-5 fw-semibold">
-          {formatPrice(product.price)}
+          {product.formattedPrice}
         </Card.Text>
         <Button
           as={Link}

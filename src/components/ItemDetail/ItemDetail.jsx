@@ -1,14 +1,12 @@
-﻿import { Col, Image, Row } from 'react-bootstrap'
-import { formatPrice } from '../../utils/formatPrice.js'
-import ItemQuantitySelector from '../ItemQuantitySelector/ItemQuantitySelector.jsx'
+import { Col, Image, Row } from 'react-bootstrap'
 
-function ItemDetail({ product }) {
+function ItemDetail({ product, children }) {
   return (
     <article aria-labelledby="product-title">
       <Row className="g-4 align-items-start">
         <Col md={6}>
           <Image
-            src={product.images?.[0] || product.thumbnail}
+            src={product.detailImage}
             alt={product.title}
             fluid
             rounded
@@ -17,11 +15,11 @@ function ItemDetail({ product }) {
         </Col>
         <Col md={6}>
           <h1 id="product-title">{product.title}</h1>
-          <p className="fs-3 fw-semibold mb-1">{formatPrice(product.price)}</p>
+          <p className="fs-3 fw-semibold mb-1">{product.formattedPrice}</p>
           <p className="text-secondary mb-4">Precio expresado en USD.</p>
           <h2 className="h5">Descripción</h2>
           <p>{product.description}</p>
-          <ItemQuantitySelector key={product.id} product={product} />
+          {children}
         </Col>
       </Row>
     </article>

@@ -1,7 +1,6 @@
-﻿import { Button, Image, Table } from 'react-bootstrap'
+import { Button, Image, Table } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { formatPrice } from '../../utils/formatPrice.js'
 
 function Brief({ items, onRemove }) {
   return (
@@ -33,9 +32,9 @@ function Brief({ items, onRemove }) {
               </div>
             </th>
             <td className="text-center">{item.quantity}</td>
-            <td className="text-end text-nowrap">{formatPrice(item.price)}</td>
+            <td className="text-end text-nowrap">{item.formattedPrice}</td>
             <td className="text-end text-nowrap">
-              {formatPrice(Math.round(item.price * 100) * item.quantity / 100)}
+              {item.formattedSubtotal}
             </td>
             {onRemove && (
               <td className="text-end">

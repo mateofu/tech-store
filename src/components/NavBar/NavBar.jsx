@@ -1,10 +1,9 @@
-﻿import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaptop } from '@fortawesome/free-solid-svg-icons'
-import CartWidget from '../CartWidget/CartWidget.jsx'
 
-function NavBar() {
+function NavBar({ cartWidget }) {
   return (
     <Navbar
       expand="md"
@@ -27,7 +26,7 @@ function NavBar() {
             <Nav.Link as={NavLink} to="/" end eventKey="home">
               Catálogo
             </Nav.Link>
-            <CartWidget />
+            {cartWidget}
           </Nav>
         </Navbar.Collapse>
       </Container>

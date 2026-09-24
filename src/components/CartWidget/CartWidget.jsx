@@ -1,11 +1,9 @@
-﻿import { Badge, Nav } from 'react-bootstrap'
+import { Badge, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import { useCart } from '../../context/CartContext.jsx'
 
-function CartWidget() {
-  const { totalQuantity } = useCart()
+function CartWidget({ totalQuantity }) {
 
   return (
     <Nav.Link
@@ -23,4 +21,3 @@ function CartWidget() {
 }
 
 export default CartWidget
-
