@@ -40,9 +40,11 @@ function ItemListContainer({ greeting }) {
 
   return (
     <section aria-labelledby="catalog-title">
-      <h1 id="catalog-title">Catálogo de tecnología</h1>
-      <p className="lead">{greeting}</p>
-      <p className="text-secondary mb-4">Precios expresados en USD.</p>
+      <header className="catalog-header">
+        <h1 id="catalog-title">Catálogo de tecnología</h1>
+        <p className="lead">{greeting}</p>
+        <p className="text-secondary mb-0">Precios expresados en USD.</p>
+      </header>
 
       {loading ? (
         <div role="status" className="d-flex align-items-center gap-2 py-4">

@@ -1,5 +1,6 @@
 ﻿import { Col, Image, Row } from 'react-bootstrap'
 import { formatPrice } from '../../utils/formatPrice.js'
+import ItemQuantitySelector from '../ItemQuantitySelector/ItemQuantitySelector.jsx'
 
 function ItemDetail({ product }) {
   return (
@@ -11,8 +12,7 @@ function ItemDetail({ product }) {
             alt={product.title}
             fluid
             rounded
-            className="w-100 bg-white p-4"
-            style={{ height: '400px', objectFit: 'contain' }}
+            className="product-detail-image"
           />
         </Col>
         <Col md={6}>
@@ -21,6 +21,7 @@ function ItemDetail({ product }) {
           <p className="text-secondary mb-4">Precio expresado en USD.</p>
           <h2 className="h5">Descripción</h2>
           <p>{product.description}</p>
+          <ItemQuantitySelector key={product.id} product={product} />
         </Col>
       </Row>
     </article>

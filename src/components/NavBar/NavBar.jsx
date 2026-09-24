@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <Navbar
       expand="md"
-      bg="dark"
+      className="store-navbar"
       data-bs-theme="dark"
       collapseOnSelect
       aria-label="Navegación principal"

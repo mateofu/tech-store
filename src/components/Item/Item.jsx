@@ -4,14 +4,13 @@ import { formatPrice } from '../../utils/formatPrice.js'
 
 function Item({ product }) {
   return (
-    <Card as="article" className="h-100 shadow-sm">
+    <Card as="article" className="product-card h-100 shadow-sm">
       <Card.Img
         variant="top"
         src={product.thumbnail}
         alt={product.title}
         loading="lazy"
-        className="p-3"
-        style={{ height: '220px', objectFit: 'contain' }}
+        className="product-card-image"
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title as="h2" className="h5">{product.title}</Card.Title>
@@ -32,4 +31,3 @@ function Item({ product }) {
 }
 
 export default Item
-

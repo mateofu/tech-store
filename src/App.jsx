@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Container as="main" className="py-5">
+      <Container as="main" className="app-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />

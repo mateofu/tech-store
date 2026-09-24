@@ -1,7 +1,9 @@
 ﻿:root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.5;
-  color: #212529;
+  --store-ink: #17243b;
+  --store-muted: #526277;
+  --store-border: #dce3ed;
+  --store-surface: #ffffff;
+  --store-background: #f4f6fa;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,5 +17,180 @@
 body {
   margin: 0;
   min-width: 320px;
-  background-color: #f8f9fa;
+  color: var(--store-ink);
+  background-color: var(--store-background);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+h1,
+h2,
+.card-title {
+  overflow-wrap: anywhere;
+}
+
+.text-secondary {
+  color: var(--store-muted) !important;
+}
+
+.app-content {
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.store-navbar {
+  padding-block: 0.9rem;
+  background-color: #142239;
+  border-bottom: 3px solid #3b82f6;
+}
+
+.store-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.store-navbar .navbar-brand svg {
+  color: #93c5fd;
+}
+
+.store-navbar .nav-link {
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.5rem;
+  color: #dbe5f3;
+}
+
+.store-navbar .nav-link:hover,
+.store-navbar .nav-link.active {
+  color: #ffffff;
+  background-color: #283d5a;
+}
+
+.catalog-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--store-border);
+}
+
+.catalog-header .lead {
+  margin-bottom: 0.5rem;
+  color: var(--store-muted);
+}
+
+.card {
+  border-color: var(--store-border);
+  border-radius: 0.85rem;
+}
+
+.product-card {
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.product-card-image {
+  height: 220px;
+  padding: 1.25rem;
+  object-fit: contain;
+  background-color: var(--store-surface);
+}
+
+.product-card .card-body {
+  padding: 1.25rem;
+  border-top: 1px solid var(--store-border);
+}
+
+.product-card .card-title {
+  line-height: 1.4;
+}
+
+.product-detail-image {
+  width: 100%;
+  height: clamp(260px, 40vw, 440px);
+  padding: clamp(1rem, 3vw, 2rem);
+  object-fit: contain;
+  background-color: var(--store-surface);
+  border: 1px solid var(--store-border);
+  border-radius: 0.85rem;
+}
+
+.btn {
+  min-height: 42px;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.btn:focus-visible,
+a:focus-visible,
+.navbar-toggler:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.store-navbar a:focus-visible,
+.store-navbar .navbar-toggler:focus-visible {
+  outline-color: #bfdbfe;
+}
+
+.cart-table {
+  --bs-table-bg: var(--store-surface);
+  --bs-table-striped-bg: #f7f9fc;
+  --bs-table-border-color: var(--store-border);
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 1rem;
+}
+
+.cart-table thead th {
+  font-size: 0.875rem;
+  color: var(--store-muted);
+  white-space: nowrap;
+}
+
+.cart-product {
+  min-width: 210px;
+}
+
+.cart-product-image {
+  flex-shrink: 0;
+  object-fit: contain;
+  background-color: var(--store-surface);
+}
+
+.checkout-summary .card-body {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.empty-cart {
+  padding: clamp(2rem, 6vw, 4rem) 1.5rem;
+  text-align: center;
+  background-color: var(--store-surface);
+  border: 1px solid var(--store-border);
+  border-radius: 0.85rem;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.75rem 1.5rem rgb(23 36 59 / 10%) !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .store-navbar .navbar-collapse {
+    padding-top: 0.75rem;
+  }
+
+  .checkout-actions > .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card {
+    transition: none;
+  }
 }

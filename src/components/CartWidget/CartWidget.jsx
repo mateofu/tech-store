@@ -2,8 +2,11 @@
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { useCart } from '../../context/CartContext.jsx'
 
-function CartWidget({ totalQuantity = 0 }) {
+function CartWidget() {
+  const { totalQuantity } = useCart()
+
   return (
     <Nav.Link
       as={NavLink}
@@ -20,3 +23,4 @@ function CartWidget({ totalQuantity = 0 }) {
 }
 
 export default CartWidget
+
