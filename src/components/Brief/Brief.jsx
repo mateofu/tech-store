@@ -1,4 +1,4 @@
-import { Button, Image, Table } from 'react-bootstrap'
+import { Button, Image, OverlayTrigger, Table, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
@@ -38,16 +38,23 @@ function Brief({ items, onRemove }) {
             </td>
             {onRemove && (
               <td className="text-end">
-                <Button
-                  variant="outline-danger"
-                  size="sm"
-                  className="text-nowrap"
-                  aria-label={`Eliminar ${item.title}`}
-                  onClick={() => onRemove(item.id)}
+                <OverlayTrigger
+                  placement="top"
+                  transition={false}
+                  popperConfig={{ strategy: 'fixed' }}
+                  overlay={<Tooltip id={`remove-tooltip-${item.id}`} className="remove-item-tooltip">Eliminar</Tooltip>}
                 >
-                  <FontAwesomeIcon icon={faTrash} className="me-2" aria-hidden="true" />
-                  Eliminar
-                </Button>
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    className="d-inline-flex align-items-center justify-content-center"
+                    style={{ minWidth: 44, minHeight: 44 }}
+                    aria-label={`Eliminar ${item.title}`}
+                    onClick={() => onRemove(item.id)}
+                  >
+                    <FontAwesomeIcon icon={faTrash} aria-hidden="true" />
+                  </Button>
+                </OverlayTrigger>
               </td>
             )}
           </tr>

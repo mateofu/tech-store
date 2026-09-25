@@ -15,10 +15,10 @@ function ItemQuantitySelector({
   onAdd,
 }) {
   return (
-    <section className="mt-4" aria-labelledby="quantity-title">
+    <section className="product-purchase" aria-labelledby="quantity-title">
       <h2 id="quantity-title" className="h5">Cantidad</h2>
       <p className="text-secondary">{availabilityMessage}</p>
-      <div className="d-flex align-items-center gap-3 mb-3">
+      <div className="quantity-controls">
         <Button
           variant="outline-secondary"
           aria-label="Disminuir cantidad"

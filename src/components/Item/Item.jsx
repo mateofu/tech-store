@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Item({ product }) {
   return (
-    <Card as="article" className="product-card h-100 shadow-sm">
+    <Card as="article" className="product-card h-100">
       <Card.Img
         variant="top"
         src={product.thumbnail}
@@ -13,13 +13,14 @@ function Item({ product }) {
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title as="h2" className="h5">{product.title}</Card.Title>
-        <Card.Text className="fs-5 fw-semibold">
+        <Card.Text className="catalog-product-price">
           {product.formattedPrice}
         </Card.Text>
         <Button
           as={Link}
           to={`/product/${product.id}`}
-          className="mt-auto"
+          variant="outline-primary"
+          className="mt-auto catalog-detail-button"
           aria-label={`Ver detalle de ${product.title}`}
         >
           Ver detalle

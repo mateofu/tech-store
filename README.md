@@ -9,9 +9,9 @@ Tienda de tecnología desarrollada con React como prueba técnica para SISTRAN. 
 - Selector de cantidad con límites según el stock y las unidades del carrito.
 - Agregado de productos sin duplicar filas del mismo artículo.
 - Contador de unidades en la barra de navegación.
-- Eliminación de productos y vaciado del carrito.
+- Eliminación de productos y vaciado del carrito con confirmación en una modal.
 - Resumen con precio unitario, cantidad, subtotal y total.
-- Confirmación de compra simulada y limpieza del carrito.
+- Modal de confirmación antes de finalizar la compra simulada y limpiar el carrito.
 - Estados de carga, catálogo vacío, errores y reintentos.
 - Página de error para rutas desconocidas.
 - Diseño adaptable con React Bootstrap e iconos Font Awesome.
@@ -60,7 +60,7 @@ Abre la dirección que indique Vite en la terminal; normalmente es `http://local
 | `npm run build` | Genera la aplicación de producción en `dist/`. |
 | `npm run preview` | Permite revisar localmente la compilación de producción. |
 | `npm run lint` | Ejecuta Oxlint. |
-| `npm test` | Ejecuta las pruebas del servicio de productos y del carrito. |
+| `npm test` | Ejecuta las pruebas del servicio, carrito, selectores y vistas. |
 
 Para revisar la compilación de producción:
 
@@ -86,6 +86,7 @@ src/
     AddItemButton/
     Brief/
     CartWidget/
+    ConfirmationModal/
     Item/
     ItemDetail/
     ItemDetailContainer/
@@ -167,13 +168,15 @@ Las pruebas del servicio simulan Fetch y no necesitan conexión a la API. Las pr
 2. Agregar varias unidades de un producto y comprobar el contador.
 3. Volver a agregar el mismo producto y revisar que se acumula en una sola fila.
 4. Comprobar que no se puede superar el stock.
-5. Eliminar un producto y revisar cantidad total, subtotales y total.
-6. Vaciar el carrito y comprobar la vista vacía.
-7. Agregar productos nuevamente y finalizar la compra simulada.
+5. Abrir la confirmación de eliminar un producto: cancelar debe conservarlo; confirmar debe actualizar cantidades e importes.
+6. Abrir la confirmación de vaciar el carrito: cancelar debe conservarlo; confirmar debe mostrar la vista vacía.
+7. Agregar productos y abrir la confirmación de compra: comprobar el total, cancelar y volver a abrir para confirmar.
 8. Comprobar que se conserva el resumen de esa compra y el contador queda en cero.
 9. Volver al catálogo y entrar al carrito: debe estar vacío.
 10. Probar `/product/abc`, `/product/999999` y una ruta desconocida.
 11. Revisar el menú, las tarjetas y la tabla en pantalla móvil y con teclado.
+12. Comprobar que Escape y el botón de cierre cancelan las modales sin modificar el carrito.
+13. Verificar que todo el botón de regreso es clicable y que el tooltip de eliminar aparece sin desplazar la página.
 
 ## Alcance y limitaciones
 

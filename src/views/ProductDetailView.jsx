@@ -5,12 +5,12 @@ import ItemDetail from '../components/ItemDetail/ItemDetail.jsx'
 function ProductDetailView({ product, loading, error, onRetry, children }) {
   return (
     <>
-      <Button as={Link} to="/" variant="outline-secondary" className="mb-4">
+      <Link to="/" className="detail-back-link mb-4">
         Volver al catálogo
-      </Button>
+      </Link>
       {loading ? (
-        <div role="status" className="d-flex align-items-center gap-2 py-4">
-          <Spinner animation="border" size="sm" aria-hidden="true" />
+        <div role="status" className="page-loading">
+          <Spinner animation="border" variant="primary" aria-hidden="true" />
           <span>Cargando producto...</span>
         </div>
       ) : error ? (
